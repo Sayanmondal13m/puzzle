@@ -15,7 +15,7 @@ body {
   }
 
   .container5 {
-    width: 520px;
+    width: 71vh;
     border: 2px solid white;
     display: flex;
     flex-direction: column;

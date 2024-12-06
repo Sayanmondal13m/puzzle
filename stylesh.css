@@ -1,78 +1,94 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow: hidden; /* Prevent scroll issues */
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column; /* Stack containers vertically */
+  width: 100%;
+  max-width: 800px;
+  gap: 20px;
+}
+
+.container5 {
+  width: 30vh;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px;
+}
+
+#pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+#drop-zone {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.slot {
+  width: 100%;
+  aspect-ratio: 1; /* Maintain square shape */
+  background-color: #444;
+}
+
+.puzzle-piece {
+  width: 30%;
+  aspect-ratio: 1; /* Maintain square shape */
+  cursor: grab;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #555;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #777;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  body {
+      height: auto; /* Allow scrolling on smaller screens */
   }
-  
-  .game-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 90%;
-    max-width: 600px;
-  }
-  
-  .container5,
-  .container {
-    width: 100%;
-    border: 2px solid white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  #pieces {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
-  }
-  
-  #drop-zone {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    width: 100%;
-    height: auto;
-  }
-  
-  .slot {
-    width: 100%;
-    aspect-ratio: 1;
-    background-color: #444;
-  }
-  
+
   .puzzle-piece {
-    width: 100%;
-    aspect-ratio: 1;
-    cursor: grab;
+      width: 50px; /* Reduce size for smaller screens */
   }
-  
-  button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: fit-content;
+
+  .slot {
+      width: 50px; /* Adjust slot size */
   }
-  
-  /* Responsive adjustments */
-  @media (min-width: 768px) {
-    .game-container {
-      flex-direction: row;
-      max-width: 1024px;
-    }
-  
-    .container5 {
-      width: 50%;
-    }
+
+  #drop-zone {
+      max-width: 90%; /* Ensure it fits on small screens */
   }
-  
+}
