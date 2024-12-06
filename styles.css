@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .game-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  .container5 {
+    width: 520px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  
+  #pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+/* Remove gap in drop zone */
+#drop-zone {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* Ensure no gap between slots */
+  width: 100%;
+  height: 80%;
+}
+
+/* Ensure slots have no unintended spacing */
+.slot {
+  width: 100px;
+  height: 100px;
+  background-color: #444;
+  margin: 0; /* Remove any margin causing spacing */
+  padding: 0; /* Ensure no padding inside slots */
+}
+
+/* Adjust container padding */
+.container {
+  padding: 0; /* Ensure no padding that affects alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content without unnecessary space */
+}
+
+/* Puzzle pieces remain untouched */
+.puzzle-piece {
+  width: 100px;
+  height: 100px;
+  cursor: grab;
+  margin: 0; /* Remove unintended margins */
+  padding: 0;
+}
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

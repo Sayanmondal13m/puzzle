@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- First container with puzzle pieces -->
+    <div id="container1" class="container5">
+      <div id="pieces">
+        <!-- Puzzle pieces with specific image sources -->
+        <img src="piece1.jpg" alt="Piece 1" class="puzzle-piece" draggable="true" data-position="1">
+        <img src="piece2.jpg" alt="Piece 2" class="puzzle-piece" draggable="true" data-position="2">
+        <img src="piece3.jpg" alt="Piece 3" class="puzzle-piece" draggable="true" data-position="3">
+        <img src="piece4.jpg" alt="Piece 4" class="puzzle-piece" draggable="true" data-position="4">
+        <img src="piece5.jpg" alt="Piece 5" class="puzzle-piece" draggable="true" data-position="5">
+        <img src="piece6.jpg" alt="Piece 6" class="puzzle-piece" draggable="true" data-position="6">
+        <img src="piece7.jpg" alt="Piece 7" class="puzzle-piece" draggable="true" data-position="7">
+        <img src="piece8.jpg" alt="Piece 8" class="puzzle-piece" draggable="true" data-position="8">
+        <img src="piece9.jpg" alt="Piece 9" class="puzzle-piece" draggable="true" data-position="9">
+      </div>
+      <button id="shuffle">Compile</button>
+    </div>
+
+    <!-- Second container for arranging puzzle pieces -->
+    <div id="container2" class="container">
+      <div id="drop-zone">
+        <!-- Slots for the puzzle -->
+        <div class="slot" data-correct="1"></div>
+        <div class="slot" data-correct="2"></div>
+        <div class="slot" data-correct="3"></div>
+        <div class="slot" data-correct="4"></div>
+        <div class="slot" data-correct="5"></div>
+        <div class="slot" data-correct="6"></div>
+        <div class="slot" data-correct="7"></div>
+        <div class="slot" data-correct="8"></div>
+        <div class="slot" data-correct="9"></div>
+      </div>
+      <button id="check">Done</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
