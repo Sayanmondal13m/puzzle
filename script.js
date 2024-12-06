@@ -3,7 +3,6 @@ const slots = document.querySelectorAll('.slot');
 const shuffleButton = document.getElementById('shuffle');
 const checkButton = document.getElementById('check');
 
-// Function to shuffle the pieces randomly
 function shufflePieces() {
   const parent = document.getElementById('pieces');
   const shuffled = [...pieces].sort(() => Math.random() - 0.5);
@@ -11,23 +10,22 @@ function shufflePieces() {
   shuffled.forEach(piece => parent.appendChild(piece));
 }
 
-// Shuffle pieces on page load
 document.addEventListener('DOMContentLoaded', shufflePieces);
-
-// Shuffle pieces when the "Compile" button is clicked
 shuffleButton.addEventListener('click', shufflePieces);
 
-// Drag-and-drop logic
 let draggedPiece = null;
 
-// Enable dragging of pieces
 pieces.forEach(piece => {
   piece.addEventListener('dragstart', () => {
     draggedPiece = piece;
   });
+
+  piece.addEventListener('touchstart', (e) => {
+    draggedPiece = e.target;
+    e.preventDefault(); // Prevents scrolling while dragging
+  });
 });
 
-// Enable dropping into slots
 slots.forEach(slot => {
   slot.addEventListener('dragover', e => e.preventDefault());
 
@@ -36,9 +34,14 @@ slots.forEach(slot => {
       slot.appendChild(draggedPiece);
     }
   });
+
+  slot.addEventListener('touchend', () => {
+    if (!slot.firstChild) {
+      slot.appendChild(draggedPiece);
+    }
+  });
 });
 
-// Allow returning pieces to the original container
 document.getElementById('pieces').addEventListener('dragover', e => e.preventDefault());
 document.getElementById('pieces').addEventListener('drop', () => {
   if (draggedPiece) {
@@ -46,7 +49,12 @@ document.getElementById('pieces').addEventListener('drop', () => {
   }
 });
 
-// Check if the puzzle is solved
+document.getElementById('pieces').addEventListener('touchend', () => {
+  if (draggedPiece) {
+    document.getElementById('pieces').appendChild(draggedPiece);
+  }
+});
+
 checkButton.addEventListener('click', () => {
   let solved = true;
 
